@@ -1,0 +1,10 @@
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    "minify-mangle-names",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-arrow-functions",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-async-generator-functions"
+  ]
+}

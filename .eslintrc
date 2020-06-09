@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb-base",
+  "parser": "babel-eslint",
+  "globals": {
+    "window": true,
+    "document": true,
+    "console": false,
+    "NodeList": true,
+    "localStorage": true,
+    "fetch": false
+  },
+  "rules": {
+    "no-param-reassign": 0
+  }
+}
