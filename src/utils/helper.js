@@ -9,7 +9,7 @@ const generateSelectionList = (
   for (let i = 1; i <= quantity; i++) {
     const optionElem = document.createElement(tagName);
     optionElem.className = className;
-    tagName === 'option' ? optionElem.value = `${textNode} ${i}` : null;
+    tagName === 'option' ? optionElem.value = `${i}` : null;
     textNode ? optionElem.textContent = `${textNode} ${i}` : null;
     fragment.appendChild(optionElem);
   }

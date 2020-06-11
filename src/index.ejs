@@ -10,16 +10,19 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body class="p-4">
+  <div id="particles-js"></div>
     <header class="mainWrapper container-fluid p-3">
-      <div class="row">
-        <div class="col-4 levels">
-          <select class="form-control">
-          </select>
-        </div>
-        <div class="col-4 rounds">
+      <div class="row justify-content-between">
+        <div class="col-3 levels">
           <select class="form-control"> </select>
         </div>
-        <div class="col-4 align-self-center text-center">
+        <div class="col-3 rounds">
+          <select class="form-control"> </select>
+        </div>
+        <button type="button" class="btn btn-light play col-1">
+          PLAY
+        </button>
+        <div class="col-3 align-self-center text-right">
           <button type="button" class="btn btn-outline-light">
             <span class="icon-volume-medium"></span>
           </button>
@@ -46,20 +49,17 @@
         </div>
       </div>
     </header>
-  <main class="container-fluid p-4">
-    <section class="puzzle-answers row text-center">
-    </section>
-    <section class="row puzzle-quiz text-center mt-4 justify-content-center">
-      <div class="puzzle-quiz__item col-12">
-        HELLO
-      </div>
-      <button type="button" class="btn btn-outline-light m-4 text-center">
-        I DON'T KNOW
-      </button>
-    </section>
-    <canvas class="background"></canvas>
-  </main>
-
-
+    <main class="container-fluid p-4">
+      <section class="puzzle-complete row text-center"></section>
+      <section class="row puzzle-quiz text-center mt-4 justify-content-center">
+        <div class="puzzle-quiz__item col-12">
+          HELLO
+        </div>
+        <button type="button" class="btn btn-outline-light m-4 text-center">
+          I DON'T KNOW
+        </button>
+      </section>
+      <canvas class="background"></canvas>
+    </main>
   </body>
 </html>
