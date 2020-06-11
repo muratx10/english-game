@@ -17,7 +17,7 @@ class App {
   }
   
   async init() {
-    // particles();
+    particles();
     generateSelectionList(
       this.ROUNDS_COUNT,
       'option',
