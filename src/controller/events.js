@@ -1,10 +1,11 @@
-import getCurrentLevelData from '../utils/fetchData';
+import fetchData from '../utils/fetchData';
 const PLAY_BTN = document.querySelector('.play');
 
 class eventHandlers {
-  startRound(lvl = 1) {
+  startRound(lvl = 1, data) {
     PLAY_BTN.addEventListener('click', () => {
-      getCurrentLevelData(lvl);
+      fetchData(lvl)
+        .then(res => data = res);
     })
   }
 }

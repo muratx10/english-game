@@ -1,4 +1,4 @@
-const fetch = async (level) => {
+const fetchData = async (level) => {
   let data;
   switch (+level) {
     case 1: data = await import('../model/data/book1');
@@ -16,13 +16,7 @@ const fetch = async (level) => {
     default: data = await import('../model/data/book1');
   }
   
-  return data;
+  return data.default;
 }
 
-function getCurrentLevelData(lvl = 1) {
-  fetch(lvl.value)
-    .then(res => console.log(res))
-    .catch(err => console.log(err.message));
-}
-
-export default getCurrentLevelData;
+export default fetchData;
