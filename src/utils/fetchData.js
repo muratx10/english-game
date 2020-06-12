@@ -15,7 +15,6 @@ const fetchData = async (level) => {
     break;
     default: data = await import('../model/data/book1');
   }
-  
   return data.default;
 }
 

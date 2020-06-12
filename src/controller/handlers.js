@@ -2,9 +2,9 @@ import fetchData from '../utils/fetchData';
 const PLAY_BTN = document.querySelector('.play');
 
 class eventHandlers {
-  startRound(lvl = 1, data) {
+  startRound(lvl, round, data) {
     PLAY_BTN.addEventListener('click', () => {
-      fetchData(lvl)
+      fetchData(lvl.value)
         .then(res => data = res);
     })
   }

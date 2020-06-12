@@ -386,7 +386,7 @@ ServiceFabricBackup/
 *.ndf
 
 # Business Intelligence projects
-*.rdl.data
+*.rdl.currentRoundData
 *.bim.layout
 *.bim_*.settings
 *.rptproj.rsuser
@@ -492,7 +492,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Runtime data
+# Runtime currentRoundData
 pids
 *.pid
 *.seed

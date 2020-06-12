@@ -6530,7 +6530,7 @@ const book3 = [
     "audioMeaning": "files/24_1667_meaning.mp3",
     "audioExample": "files/24_1667_example.mp3",
     "textMeaning": "Data is a collection of information and facts",
-    "textExample": "He saved all the data on his computer",
+    "textExample": "He saved all the currentRoundData on his computer",
     "transcription": "[déitə]",
     "wordTranslate": "данные",
     "textMeaningTranslate": "Данные - это сбор информации и фактов",

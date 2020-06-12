@@ -1,7 +1,7 @@
 import fetchData from './utils/fetchData';
 import particles from './utils/particles';
 import generateSelectionList from './utils/helper';
-import eventHandlers from './controller/events';
+import eventHandlers from './controller/handlers';
 import './styles/main.scss';
 
 class App {
@@ -14,12 +14,12 @@ class App {
     this.LEVEL_SELECT = document.querySelector('.levels select');
     this.ROUND_SELECT = document.querySelector('.rounds select');
     this.PUZZLE_COMPLETE = document.querySelector('.puzzle-complete');
-    this.data = null;
+    this.currentRoundData = null;
     
   }
   
   async init() {
-    // particles();
+    particles();
     generateSelectionList(
       this.ROUNDS_COUNT,
       'option',
@@ -35,8 +35,8 @@ class App {
       'puzzle-complete__item col-12',
       'HELLO'
     );
-    this.data = await fetchData();
-    eventHandlers.startRound(this.LEVEL_SELECT, this.data);
+    this.currentRoundData = await fetchData(1);
+    eventHandlers.startRound(this.LEVEL_SELECT, this.ROUND_SELECT, this.currentRoundData,);
   }
 }
 
