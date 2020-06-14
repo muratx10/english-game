@@ -50,4 +50,3 @@ class App {
 const Game = new App(6, 60, 10);
 
 Game.init();
-console.log(1);
