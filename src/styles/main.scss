@@ -60,7 +60,9 @@ button:focus {
     line-height: 50px;
     height: 50px;
     border-bottom: 1px solid black;
-    background: orangered;
+    background: rgba(0, 0, 0, 0.4);
+    color: #FFF;
+    text-transform: uppercase;
   }
 }
 

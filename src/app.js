@@ -5,9 +5,7 @@ import eventHandlers from './controller/handlers';
 import './styles/main.scss';
 
 class App {
-  constructor(
-    levelN, roundN, sentenceN 
-  ) {
+  constructor(levelN, roundN, sentenceN) {
     this.LEVELS_COUNT = levelN;
     this.ROUNDS_COUNT = roundN;
     this.SENTENCE_COUNT = sentenceN;
@@ -15,9 +13,8 @@ class App {
     this.ROUND_SELECT = document.querySelector('.rounds select');
     this.PUZZLE_COMPLETE = document.querySelector('.puzzle-complete');
     this.currentRoundData = null;
-    
   }
-  
+
   async init() {
     particles();
     generateSelectionList(
@@ -27,7 +24,13 @@ class App {
       'rounds__item',
       'Round'
     );
-    generateSelectionList(this.LEVELS_COUNT, 'option', this.LEVEL_SELECT, 'levels__item', 'Level');
+    generateSelectionList(
+      this.LEVELS_COUNT,
+      'option',
+      this.LEVEL_SELECT,
+      'levels__item',
+      'Level'
+    );
     generateSelectionList(
       this.SENTENCE_COUNT,
       'div',
@@ -36,7 +39,11 @@ class App {
       'HELLO'
     );
     this.currentRoundData = await fetchData(1);
-    eventHandlers.startRound(this.LEVEL_SELECT, this.ROUND_SELECT, this.currentRoundData,);
+    eventHandlers.startRound(
+      this.LEVEL_SELECT,
+      this.ROUND_SELECT,
+      this.currentRoundData
+    );
   }
 }
 

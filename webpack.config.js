@@ -12,17 +12,15 @@ const isProd = ENV === 'build';
 function setDevTool() {
   if (isDev) {
     return 'cheap-module-eval-source-map';
-  } else {
-    return 'none';
   }
+  return 'none';
 }
 
 function setDMode() {
   if (isProd) {
     return 'production';
-  } else {
-    return 'development';
   }
+  return 'development';
 }
 
 const conf = {
@@ -34,6 +32,7 @@ const conf = {
   devServer: {
     watchContentBase: true,
     overlay: true,
+    port: 3002,
   },
   mode: setDMode(),
   devtool: setDevTool(),
@@ -72,14 +71,14 @@ const conf = {
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
           {
             loader: 'sass-loader',
             options: {
               implementation: sass,
-              sourceMap: true
+              sourceMap: true,
             },
           },
         ],
