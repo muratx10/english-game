@@ -13,6 +13,10 @@ module.exports = merge(common, {
     compress: true,
     hot: true,
     port: 8080,
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: true,
+    },
   },
 
   plugins: [new webpack.HotModuleReplacementPlugin()],

@@ -1,4 +1,4 @@
-const fetchData = async (level) => {
+const fetchData = async (level, round, wordsCount) => {
   let data;
   switch (+level) {
     case 1: data = await import('../model/data/book1');
@@ -15,7 +15,9 @@ const fetchData = async (level) => {
       break;
     default: data = await import('../model/data/book1');
   }
-  return data.default;
+  const begin = +round * wordsCount - wordsCount;
+  const end = begin + wordsCount;
+  return data.default.slice(begin, end);
 };
 
 export default fetchData;

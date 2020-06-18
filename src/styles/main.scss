@@ -22,6 +22,7 @@ header {
 }
 
 main {
+  background: transparent;
   .puzzle-complete__item {
     font-weight: 500;
     color: white;
@@ -56,6 +57,7 @@ button:focus {
 }
 
 .puzzle-quiz {
+  
   .puzzle-quiz__item {
     line-height: 50px;
     height: 50px;
@@ -63,6 +65,18 @@ button:focus {
     background: rgba(0, 0, 0, 0.4);
     color: #FFF;
     text-transform: uppercase;
+    
+    span {
+      padding: 0 5px;
+      display: inline-block;
+      box-shadow: 1px 0 1px #fff;
+      user-select: none;
+      cursor: grab;
+      
+      &:active {
+        cursor: grabbing;
+      }
+    }
   }
 }
 
