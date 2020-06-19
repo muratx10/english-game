@@ -2,7 +2,6 @@ import eventHandlers from './controller/handlers';
 import './styles/main.scss';
 import fetchData from './utils/fetchData';
 import { createShuffledArray, generateSelectionList } from './utils/helpers';
-// eslint-disable-next-line no-unused-vars
 import particles from './utils/particles';
 
 class App {
@@ -20,7 +19,7 @@ class App {
   }
 
   async init() {
-    // particles();
+    particles();
     if (window.navigator.vendor.includes('Apple')) {
       document.body.setAttribute('style', 'animation: none');
     }
@@ -42,7 +41,7 @@ class App {
       this.WORDS_COUNT,
       'div',
       this.PUZZLE_COMPLETE,
-      'puzzle-complete__item col-12',
+      'puzzle-complete__item col-12 p-0 text-left',
     );
     // fetch first 10 words on start of game
     this.currentRoundData = await fetchData(1, 1, this.WORDS_COUNT)
@@ -67,12 +66,21 @@ class App {
     // eslint-disable-next-line array-callback-return
     quiz.map((item) => {
       const word = document.createElement('span');
+      word.className = 'word';
       word.textContent = item.toUpperCase();
       word.style.width = `${(item.length / sentenceLength) * 100}%`;
       quizFrg.appendChild(word);
     });
     this.quizContainer.innerHTML = null;
     this.quizContainer.appendChild(quizFrg);
+    this.activateRow();
+  }
+
+  activateRow() {
+    const rows = document.querySelectorAll('.puzzle-complete__item');
+    rows.forEach((node, idx) => {
+      if (this.currentWord === idx) node.classList.add('active-row');
+    });
   }
 }
 

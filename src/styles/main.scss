@@ -6,13 +6,13 @@
 @import 'keyframes';
 
 body {
+  font-family: 'Rubik', sans-serif;
   min-width: 992px;
   max-width: 1340px;
   margin: 0 auto;
-  background: linear-gradient(-45deg, #9ae7bb, #ace4ea, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  font-family: 'Rubik', sans-serif;
+  background: linear-gradient(-45deg, #9AE7BB, #ACE4EA, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
 }
 
 header {
@@ -23,11 +23,12 @@ header {
 
 main {
   background: transparent;
+
   .puzzle-complete__item {
     font-weight: 500;
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-      1px 1px 0 #000;
+    color: rgba(21, 86, 129, 1.000);
+    text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF,
+    1px 1px 0 #FFF;
   }
 }
 
@@ -39,7 +40,7 @@ button:focus {
 
 .btn:hover {
   color: theme-color('info');
-  background: #fff;
+  background: #FFF;
 }
 
 .puzzle-complete {
@@ -49,34 +50,68 @@ button:focus {
 
   .puzzle-complete__item {
     line-height: 50px;
-    overflow: hidden;
+    //overflow: hidden;
     height: 50px;
+    transition: 200ms;
     border-bottom: 1px solid black;
     background: rgba(0, 0, 0, 0.2);
+  }
+
+  .active-row {
+    transition: 200ms;
+    position: relative;
+    
+    &:before {
+      content: '\2726';
+      display: block;
+      font-size: 30px;
+      position: absolute;
+      left: -12px;
+      color: greenyellow;
+      animation: skew 2s infinite;
+      
+    }
   }
 }
 
 .puzzle-quiz {
-  
   .puzzle-quiz__item {
     line-height: 50px;
+    box-sizing: content-box;
     height: 50px;
-    border-bottom: 1px solid black;
-    background: rgba(0, 0, 0, 0.4);
-    color: #FFF;
+    //border-bottom: 1px solid black;
     text-transform: uppercase;
-    
-    span {
-      padding: 0 5px;
-      display: inline-block;
-      box-shadow: 1px 0 1px #fff;
-      user-select: none;
-      cursor: grab;
-      
-      &:active {
-        cursor: grabbing;
-      }
-    }
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.word {
+  display: inline-block;
+  padding: 0 5px;
+  cursor: grab;
+  user-select: none;
+  transition: 150ms;
+  outline: 1px white solid;
+  text-align: center;
+  animation: glow 600ms;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &:hover {
+    background: rgba(171, 227, 234, 0.5);
+  }
+}
+
+.moveWord {
+  background: #FFF;
+  color: #000;
+  
+  &:hover {
+    background: #FFF;
+    color: #000;
   }
 }
 
@@ -91,8 +126,8 @@ button:focus {
 #particles-js {
   position: absolute;
   z-index: -1;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
 }

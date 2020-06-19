@@ -4,8 +4,26 @@ import fetchData from '../utils/fetchData';
 const PLAY_BTN = document.querySelector('.play');
 const LEVEL_INPUT = document.querySelector('.levels .form-control');
 const ROUND_INPUT = document.querySelector('.rounds .form-control');
+const quizContainer = document.querySelector('.puzzle-quiz__item');
+
+quizContainer.addEventListener('click', (e) => {
+  const ACTIVE_ROW = document.querySelector('.active-row');
+  const node = e.target.classList.contains('word');
+  let timerID;
+  if (node) {
+    clearTimeout(timerID);
+    const clone = e.target.cloneNode(true);
+    e.target.classList.add('moveWord');
+    timerID = setTimeout(() => {
+      e.target.remove();
+      ACTIVE_ROW.appendChild(clone);
+    }, 700);
+  }
+});
+
 
 LEVEL_INPUT.addEventListener('change', () => ROUND_INPUT.value = 1);
+
 
 class EventHandler {
   startRound(lvl, round, data, wordsCount, callback, idx) {

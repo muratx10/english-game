@@ -9,3 +9,37 @@
     background-position: 0 50%;
   }
 }
+
+@keyframes glow {
+  0% {
+    background: inherit;
+    color: inherit;
+  }
+  
+  50% {
+    background: white;
+    color: black;
+  }
+  
+  100% {
+    background: inherit;
+    color: inherit;
+  }
+}
+
+@keyframes skew  {
+  0% {
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+  }
+  
+  50% {
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+  }
+}
