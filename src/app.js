@@ -15,7 +15,8 @@ class App {
     this.quizContainer = document.querySelector('.puzzle-quiz__item');
     this.currentRoundData = null;
     this.currentWord = 0;
-    this.currentQuiz = null;
+    this.currentSentenceShuffled = null;
+    this.currentSentenceOriginal = null;
   }
 
   async init() {
@@ -56,15 +57,18 @@ class App {
       this.currentWord,
     );
 
+    eventHandlers.chooseAnswer(this);
+
     this.renderQuiz(this.currentRoundData[this.currentWord]);
   }
 
   renderQuiz(obj) {
-    const quiz = createShuffledArray(obj.textExample);
+    this.currentSentenceShuffled = createShuffledArray(obj.textExample);
+    this.currentSentenceOriginal = obj.textExample;
     const quizFrg = document.createDocumentFragment();
     const sentenceLength = obj.textExample.replace(/ /g, '').length;
     // eslint-disable-next-line array-callback-return
-    quiz.map((item) => {
+    this.currentSentenceShuffled.map((item) => {
       const word = document.createElement('span');
       word.className = 'word';
       word.textContent = item.toUpperCase();

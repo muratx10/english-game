@@ -50,7 +50,7 @@ button:focus {
 
   .puzzle-complete__item {
     line-height: 50px;
-    //overflow: hidden;
+    z-index: 1;
     height: 50px;
     transition: 200ms;
     border-bottom: 1px solid black;
@@ -69,6 +69,7 @@ button:focus {
       left: -12px;
       color: greenyellow;
       animation: skew 2s infinite;
+      z-index: 2;
       
     }
   }
