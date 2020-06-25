@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint --fix --ignore-path .gitignore .",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js --open 'Google Chrome'"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

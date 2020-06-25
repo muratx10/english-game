@@ -2,7 +2,7 @@ import eventHandlers from './controller/handlers';
 import './styles/main.scss';
 import fetchData from './utils/fetchData';
 import { createShuffledArray, generateSelectionList } from './utils/helpers';
-import particles from './utils/particles';
+// import particles from './utils/particles';
 
 class App {
   constructor(levelN, roundN, sentenceN) {
@@ -17,10 +17,11 @@ class App {
     this.currentWord = 0;
     this.currentSentenceShuffled = null;
     this.currentSentenceOriginal = null;
+    this.clickAction = false;
   }
 
   async init() {
-    particles();
+    // particles();
     if (window.navigator.vendor.includes('Apple')) {
       document.body.setAttribute('style', 'animation: none');
     }
@@ -63,8 +64,8 @@ class App {
   }
 
   renderQuiz(obj) {
-    this.currentSentenceShuffled = createShuffledArray(obj.textExample);
-    this.currentSentenceOriginal = obj.textExample;
+    this.currentSentenceShuffled = createShuffledArray(obj.textExample.toLowerCase());
+    this.currentSentenceOriginal = obj.textExample.toLowerCase().split(' ');
     const quizFrg = document.createDocumentFragment();
     const sentenceLength = obj.textExample.replace(/ /g, '').length;
     // eslint-disable-next-line array-callback-return

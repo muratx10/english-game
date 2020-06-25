@@ -22,18 +22,31 @@ class EventHandler {
   chooseAnswer(data) {
     console.log(data);
     quizContainer.addEventListener('click', (e) => {
-      const ACTIVE_ROW = document.querySelector('.active-row');
-      const node = e.target.classList.contains('word');
-      const sentenceLength = data.currentSentenceShuffled;
-      let timerID;
-      if (node) {
-        clearTimeout(timerID);
-        const clone = e.target.cloneNode(true);
-        e.target.classList.add('moveWord');
-        timerID = setTimeout(() => {
-          e.target.remove();
-          ACTIVE_ROW.appendChild(clone);
-        }, 700);
+      if (!data.clickAction) {
+        const ACTIVE_ROW = document.querySelector('.active-row');
+        const node = e.target.classList.contains('word');
+        const sentenceLength = data.currentSentenceShuffled;
+        let timerID;
+        if (node) {
+          clearTimeout(timerID);
+          const clone = e.target.cloneNode(true);
+          e.target.classList.add('moveWord');
+          timerID = setTimeout(() => {
+            e.target.remove();
+            ACTIVE_ROW.appendChild(clone);
+            ACTIVE_ROW.querySelectorAll('.word').forEach((item, idx) => {
+              if (!item.classList.contains('wrong') || !item.classList.contains('correct')) {
+                if (item.textContent.toLowerCase() === data.currentSentenceOriginal[idx]) {
+                  item.classList.add('correct');
+                } else {
+                  item.classList.add('wrong');
+                }
+              }
+            });
+            data.clickAction = false;
+          }, 300);
+          data.clickAction = true;
+        }
       }
     });
   }
