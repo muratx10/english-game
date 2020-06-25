@@ -20,6 +20,7 @@ class EventHandler {
   }
 
   chooseAnswer(data) {
+    console.log(data);
     quizContainer.addEventListener('click', (e) => {
       const ACTIVE_ROW = document.querySelector('.active-row');
       const node = e.target.classList.contains('word');
