@@ -1,18 +1,21 @@
-@mixin shadowAnimation($color) {
-  @keyframes shadowRise {
-    0% {
-      box-shadow: inset 0 0 7px -4px $color;
-    }
+:root {
+  --fail: #ff4500;
+  --success: #77fe00;
+}
 
-    //50% {
-    //  box-shadow: inset 0 0 7px -4px $color;
-    //}
+@mixin shadowAnimation($type) {
+  @keyframes #{$type} {
+    0% {
+      @if $type == fail {box-shadow: inset 0 0 7px -4px var(--fail);}
+      @else {box-shadow: inset 0 0 7px -4px var(--success);}
+    }
 
     100% {
-      box-shadow: inset 0 -10px 7px -4px $color;
+      @if $type == fail {box-shadow: inset 0 -10px 7px -4px var(--fail);}
+      @else {box-shadow: inset 0 -10px 7px -4px var(--success);}
     }
   }
-
-  box-shadow: inset 0 -10px 7px -4px $color;
-  animation: shadowRise 2s ease;
+  animation: #{$type} 2s ease;
+  @if $type == fail {box-shadow: inset 0 -10px 7px -4px var(--fail);}
+  @else {box-shadow: inset 0 -10px 7px -4px var(--success);}
 }

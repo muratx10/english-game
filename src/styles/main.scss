@@ -57,15 +57,13 @@ button:focus {
     transition: 200ms;
     border-bottom: 1px solid black;
     background: rgba(0, 0, 0, 0.2);
-    
-    .correct {
-      //box-shadow: inset 0 -10px 7px -4px #77fe00;
-      @include shadowAnimation(#77fe00);
+
+    .wrong {
+      @include shadowAnimation(fail);
     }
     
-    .wrong {
-      //box-shadow: inset 0 -10px 7px -4px #ff4500;
-      @include shadowAnimation(#ff4500);
+    .correct {
+      @include shadowAnimation(success);
     }
   }
 
